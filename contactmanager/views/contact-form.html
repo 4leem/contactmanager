@@ -1,0 +1,39 @@
+<!-- HTML for adding/editing new contact -->
+<div>
+<h2 class="page-header text-center" ng-if="isNew">Create Contact</h2>
+<h2 class="page-header text-center" ng-if="isEdit">Edit Contact</h2>
+<form role="form" class="form-horizontal contract-form" name="addnew" ng-submit="addContact()">
+	<div class="form-group">
+		<label class="col-sm-4 control-label">Full name:</label>
+		<div class="col-sm-6">
+			<input type="text" class="form-control contact-name-input" value="" required name="name" ng-model="contact.name">
+			<p class="error validationerror" ng-show="addnew.name.$invalid && addnew.name.$touched">
+        You must fill out your full name.</p>
+		</div>
+	</div>
+	<div class="form-group">
+		<label class="col-sm-4 control-label">Email address:</label>
+		<div class="col-sm-6">
+			<input type="email" class="form-control contact-email-input" required value="" name="email" ng-model="contact.email">
+			<p class="error validationerror" ng-show="addnew.email.$invalid && addnew.email.$touched">
+        This must be a valid email.</p>
+		</div>
+	</div>
+	<div class="form-group">
+		<label class="col-sm-4 control-label">Telephone number:</label>
+		<div class="col-sm-6">
+			<input type="tel" class="form-control contact-tel-input" name="telephone" required ng-model="contact.tel" min-length="10" max-length="10" ng-pattern="/^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/" name="telephone">
+			<p class="error validationerror" ng-show="addnew.telephone.$invalid && addnew.telephone.$touched">
+	        You must fill out your valid telephone number.</p>
+		</div>
+	</div>
+	<div class="form-group">
+		<div class="col-sm-offset-4 col-sm-3">
+			<button type="submit" class="btn btn-outline btn-lg btn-block">Submit</button>
+		</div>
+		<div class="col-sm-3">
+			<a href="#contacts" class="btn btn-outline btn-lg btn-block">Cancel</a>
+		</div>
+	</div>
+</form>
+</div>

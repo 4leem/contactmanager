@@ -1,0 +1,31 @@
+<!-- HTML for rendering all the contacts -->
+<h2 class="page-header text-center">List of contacts</h2>
+<p class="text-center">
+	<a href="#contacts/new" class="btn btn-lg btn-outline">Add Contact</a>
+</p>
+<ul class="media-list row contacts-container">
+	<li class="media col-md-6 col-lg-4" ng-repeat="cnt in contacts.contacts">
+		<div class="thumbnail">
+			<img class="media-object" src="../images/faces/{{15 | randomize}}.jpg">
+		</div>
+		<div class="media-heading">
+			<h4>
+				{{cnt.name}}
+				<small>
+					<a href="#/contacts/edit/{{cnt.id}}"><span class="glyphicon glyphicon-pencil"></span></a>
+					<a href="#/contacts/delete/{{cnt.id}}" ng-click="remove()" class="delete-contract">
+						<span class="glyphicon glyphicon-trash"></span>
+					</a>
+				</small>
+			</h4>
+		</div>
+		<div class="media-body">
+			<dl>
+				<dt>Phone Number:</dt>
+				<dd>{{cnt.tel}}</dd>
+				<dt>Email:</dt>
+				<dd>{{cnt.email}}</dd>
+			</dl>
+		</div>
+	</li>
+</ul>
